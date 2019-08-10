@@ -1,6 +1,0 @@
-python
-golang
-java
-ruby
-bash
-Fri Aug  9 16:06:09 IST 2019
