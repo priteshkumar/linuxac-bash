@@ -10,7 +10,7 @@ done
 
 SERVERLIST[COUNT]="devcn"
 echo "${SERVERLIST[*]}"
-echo "done parsing"
+echo "done parsing !!"
 
 
 
