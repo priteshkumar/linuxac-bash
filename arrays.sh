@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-SERVERLIST=("devhyd" "devscl" "devbdc" "devaustin" "devmarkham")
+SERVERLIST=("devhyd" "devscl" "devbdc" "devaustin" "devmarkham" "devral")
 COUNT=0
 for index in ${SERVERLIST[@]}; do
 	echo "${SERVERLIST[COUNT]}"
