@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-SERVERLIST=("devhyd" "devscl" "devbdc" "devaustin" "devmarkham" "devral")
+SERVERLIST=("devhyd" "devscl" "devbdc" "devaustin" "devmarkham")
 COUNT=0
 for index in ${SERVERLIST[@]}; do
 	echo "${SERVERLIST[COUNT]}"
@@ -10,7 +10,7 @@ done
 
 SERVERLIST[COUNT]="devcn"
 echo "${SERVERLIST[*]}"
-
+echo "done parsing"
 
 
 
