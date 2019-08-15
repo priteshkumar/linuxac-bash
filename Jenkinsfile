@@ -20,6 +20,7 @@ node {
             sh "cat .git/HEAD"
             sh "git branch"
             //copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
+            sh "cat ./case.sh"
             sh "./arrays.sh"
             sh "mkdir target"
             sh "cp *.sh ./target/"
