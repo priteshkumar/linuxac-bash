@@ -15,7 +15,7 @@ node {
    stage('Build') {
       // Run the maven build
         if (isUnix()) {
-            sh "git checkout -b '$gitBranch' origin/dev"
+            //sh "git checkout -b '$gitBranch' origin/dev"
             copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
             sh "./arrays.sh"
             sh "mkdir target"
