@@ -16,7 +16,7 @@ node {
       // Run the maven build
         if (isUnix()) {
             //sh "git checkout -b '$gitBranch' origin/dev"
-            copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
+            //copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
             sh "./arrays.sh"
             sh "mkdir target"
             sh "cp *.sh test ./target/"
