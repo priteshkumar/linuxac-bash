@@ -19,7 +19,7 @@ node {
             //copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
             sh "./arrays.sh"
             sh "mkdir target"
-            sh "cp *.sh test ./target/"
+            sh "cp *.sh ./target/"
          }
    }
    stage('Results') {
