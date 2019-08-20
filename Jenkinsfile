@@ -6,7 +6,7 @@ node {
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
       
-      git 'https://github.com/priteshkumar/linuxac-bash.git'
+      git url:'https://github.com/priteshkumar/linuxac-bash.git', branch: 'master'
       // Get the Maven tool.
       // ** NOTE: This 'M3' Maven tool must be configured
       // **       in the global configuration.           
