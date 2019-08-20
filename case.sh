@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "Start menu screen"
 echo "Here are the menu options"
 echo "1) enter 1"
 echo "2) enter 2"
