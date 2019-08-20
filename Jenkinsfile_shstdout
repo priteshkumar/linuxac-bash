@@ -1,0 +1,57 @@
+node('master') {
+   
+   stage('Cleanup'){
+       cleanWs()
+   }
+   
+   stage('Preparation') { 
+      git url:'https://github.com/priteshkumar/linuxac-bash.git', branch: 'master'
+   }
+   
+   stage('Build') {
+      // Run the maven build
+        def JAVAVERSION=sh label: '', returnStdout: true, script: 'which java'
+        echo "${JAVAVERSION}"
+        
+        if (isUnix()) {
+            echo "${BUILD_ID}"
+            echo "${JOB_NAME}"
+            
+            sh "mkdir -p target"
+            
+            try{
+                echo "build try block"
+                copyArtifacts filter: 'test', fingerprintArtifacts: true, projectName: '../updptriggers/repogit'
+                sh
+                sh "cp test ./target/"
+            }
+            catch(err){
+                echo "caught exception in build try block"
+                echo "${err}"
+            }
+            finally{
+                echo "build finally block"
+                sh "./arrays.sh"
+                sh "cp *.sh ./target/"    
+            }
+            
+         }
+   }
+   stage('Results') {
+        try{
+            sh "tar -czf ./artifacts.tar.gz ./target/*"
+            archiveArtifacts "*.gz"
+            fingerprint 'artifacts.tar.gz'
+        }
+        catch(err){
+            echo "archieve step error"
+            echo "${err}"
+        }
+        finally{
+            echo "finished archive step"
+        }
+    
+    
+      
+   }
+}
