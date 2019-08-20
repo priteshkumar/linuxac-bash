@@ -9,7 +9,8 @@ node('master') {
    }
    
    stage('Build') {
-      // Run the maven build
+
+	//set JAVAVERSION from node
         def JAVAVERSION=sh label: '', returnStdout: true, script: 'which java'
         echo "${JAVAVERSION}"
         
