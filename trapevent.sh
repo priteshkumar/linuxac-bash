@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+echo "start of trapevent"
 TEMPF1="tmpfile1.txt"
 TEMPF2="tmpfile2.txt"
 
