@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+echo "devops server list"
 SERVERLIST=("devhyd" "devscl" "devbdc" "devaustin" "devmarkham" "devsng")
 COUNT=0
 for index in ${SERVERLIST[@]}; do
