@@ -4,7 +4,7 @@ stage('test-deploy'){
         
         cleanWs()
         echo "${WORKSPACE}"
-        echo "test logs"
+        echo "test logs add"
         git url:'https://github.com/priteshkumar/projCert.git', branch:'master'      
         sh "cp /home/jenkins/ansible/jenkins-test-provision.yml $WORKSPACE/jenkins-test-provision.yml"
         sh "cp /home/jenkins/ansible/keys.yml $WORKSPACE/keys.yml"
