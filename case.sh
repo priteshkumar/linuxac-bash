@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "add test options more!!!"
+echo "add test options more!!!!"
 echo "add menu start screen!!!!"
 echo "Here are the menu options"
 echo "1) enter 1"
