@@ -11,15 +11,16 @@ YCORD=50
 
 displaymenubox () {
 
-	$MENUBOX --title "[ MAIN MENU ]" --menu "Use up/down arrow keys to select option" "11" "11" 4 1 "Disk info" 2 "Memory info" 3 "Cpu info" X "Exit" 2>choice.txt
+	$MENUBOX --title "[ MAIN MENU ]" --menu "Use up/down arrow keys to select option" "30" "30" 4 1 "Disk info" 2 "Memory info" 3 "Cpu info" X "Exit" 2>choice.txt
 
 }
 
 
 displayinfobox () {
-
+	
+	#echo "$2"
 	$INFOBOX --title "$1" --infobox "$2" "$3" "$4"
-	sleep 5
+	sleep 10
 
 }
 
@@ -29,19 +30,33 @@ displayinfobox () {
 
 #script - start
 
+SHOWMENU=1
+while [ ! -z $SHOWMENU ]; do
+
 displaymenubox
 
 case "`cat choice.txt`" in
 	1)echo "display disk info "
-	
-	displayinfobox "System Disk info" "`cat "`df -h`"`" "100" "70"
+	df -h > diskinfo.txt
+	#chmod 777 diskinfo.txt	
+	displayinfobox "System Disk info" "`cat diskinfo.txt`" "50" "120"
 	;;
-	2)echo "display Memory info";;
-	3)echo "display Cpu info";;
-	X)echo "exit";;
-esac
 
-displaymenubox
+	2)echo "display Memory info"
+	cat /proc/meminfo > meminfo.txt
+	displayinfobox "System Memory info" "`cat meminfo.txt`" "90" "100"
+	;;
+
+	3)echo "display Cpu info"
+	top > topinfo.txt
+	displayinfobox "System Cpu info" "`cat topinfo.txt`" "120" "120"
+	;;
+
+	X)echo "exit"
+	SHOWMENU=
+	;;
+esac
+done
 
 exit
 
